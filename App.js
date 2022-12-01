@@ -83,7 +83,6 @@ const App: () => Node = () => {
           <Section title="Step Four">
             Project-Idee muss konzepiert werden
           </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
