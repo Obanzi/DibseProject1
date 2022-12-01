@@ -70,7 +70,6 @@ const App: () => Node = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -82,6 +81,12 @@ const App: () => Node = () => {
           <Section title="Step Three">Projektplan muss erstellt werden</Section>
           <Section title="Step Four">
             Project-Idee muss konzepiert werden
+          </Section>
+          <Section title="Step Five">
+            Vorstellung der Idee und des Projektes am 05.Dezember
+          </Section>
+          <Section title="Step Six">
+            Projekt muss bis zum 19.Dezember fertig sein
           </Section>
         </View>
       </ScrollView>
