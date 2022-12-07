@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 
 import {
@@ -25,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import EnergyTipps from './EnergyTippsComponent';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -94,6 +96,14 @@ const App: () => Node = () => {
           <Section title="Step Eight">
             Ende Gut alles Gut, oder so ähnlich
           </Section>
+          <Button
+            onPress={() => {
+              alert(
+                'Die Stromspart-Zeiten sind nun aktiv ! Von 17:00 bis 19:00',
+              );
+            }}
+            title="Press Me"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
