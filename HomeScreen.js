@@ -22,6 +22,24 @@ function HomeScreen({navigation}) {
           </Button>
         </Card.Content>
       </Card>
+      <Card style={styles.card}>
+        <Card.Title title="Graphen jetzt ansehen !" />
+        <Card.Content>
+          <Button mode="contained" onPress={() => navigation.navigate('Graph')}>
+            Jetzt ansehen !
+          </Button>
+        </Card.Content>
+      </Card>
+      <Card style={styles.card}>
+        <Card.Title title="StromsparZeiten jetzt ansehen !" />
+        <Card.Content>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate('StromSpar-Zeiten')}>
+            Jetzt ansehen !
+          </Button>
+        </Card.Content>
+      </Card>
     </ScrollView>
   );
 }
