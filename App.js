@@ -91,6 +91,9 @@ const App: () => Node = () => {
           <Section title="Step Seven">
             RIP Projekt, es lebe das nächste Projekt
           </Section>
+          <Section title="Step Eight">
+            Ende Gut alles Gut, oder so ähnlich
+          </Section>
         </View>
       </ScrollView>
     </SafeAreaView>
