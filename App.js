@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -87,6 +87,9 @@ const App: () => Node = () => {
           </Section>
           <Section title="Step Six">
             Projekt muss bis zum 19.Dezember fertig sein
+          </Section>
+          <Section title="Step Seven">
+            RIP Projekt, es lebe das nächste Projekt
           </Section>
         </View>
       </ScrollView>
