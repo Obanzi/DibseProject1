@@ -17,6 +17,7 @@ import {
   useColorScheme,
   View,
   Button,
+  Alert,
 } from 'react-native';
 
 import {
@@ -98,7 +99,8 @@ const App: () => Node = () => {
           </Section>
           <Button
             onPress={() => {
-              alert(
+              Alert.alert(
+                'Vigoris reminder',
                 'Die Stromspart-Zeiten sind nun aktiv ! Von 17:00 bis 19:00',
               );
             }}
