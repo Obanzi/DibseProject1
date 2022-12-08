@@ -15,7 +15,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Energy" component={EnergyTipps} />
+          <Stack.Screen name="Energiespar Tipps !" component={EnergyTipps} />
           <Stack.Screen name="Graph" component={Graph} />
           <Stack.Screen name="StromSpar-Zeiten" component={StromsparZeiten} />
         </Stack.Navigator>

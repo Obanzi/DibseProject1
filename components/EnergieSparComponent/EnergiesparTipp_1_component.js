@@ -1,15 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, Button, Image} from 'react-native';
 
 const EnergieTipp1 = props => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>EnergieTipp1</Text>
-      <Button
-        title="Zurück"
-        onPress={() => {
-          props.navigation.goBack();
-        }}
+      <Image
+        source={require('../images/EnergieSparTipp1.png')}
+        style={styles.image}
       />
     </View>
   );
@@ -18,11 +15,17 @@ const EnergieTipp1 = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '000',
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
     fontSize: 30,
   },
+  image: {
+    width: '100%',
+    height: 290,
+  },
 });
+
+export default EnergieTipp1;

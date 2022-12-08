@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import type {Node} from 'react';
-import EnergiesparTipp_1_component from './EnergiesparTipp_1_component';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -18,29 +18,46 @@ import {
   useColorScheme,
   View,
   Button,
+  Image,
 } from 'react-native';
+import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
+import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
+import EnergiesparTipp_3_component from './EnergieSparComponent/EnergiesparTipp_3_component';
+import EnergiesparTipp_4_component from './EnergieSparComponent/EnergiesparTipp_4_component';
+import EnergiesparTipp_5_component from './EnergieSparComponent/EnergiesparTipp_5_component';
+import EnergiesparTipp_6_component from './EnergieSparComponent/EnergiesparTipp_6_component';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const EnergyTipps: () => Node = () => {
-  return <EnergiesparTipp_1_component />;
-};
+function EnergyTipps() {
+  const isDarkMode = useColorScheme() === 'dark';
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.white : Colors.white,
+          }}>
+          <EnergiesparTipp_1_component />
+          <EnergiesparTipp_2_component />
+          <EnergiesparTipp_3_component />
+          <EnergiesparTipp_4_component />
+          <EnergiesparTipp_5_component />
+          <EnergiesparTipp_6_component />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
 
 export default EnergyTipps;

@@ -17,7 +17,7 @@ function HomeScreen({navigation}) {
         <Card.Content>
           <Button
             mode="contained"
-            onPress={() => navigation.navigate('Energy')}>
+            onPress={() => navigation.navigate('Energiespar Tipps !')}>
             Jetzt ansehen !
           </Button>
         </Card.Content>
