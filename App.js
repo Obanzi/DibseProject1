@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from './HomeScreen';
-import EnergyTipps from './EnergyTippsComponent';
-import StromsparZeiten from './StromsparZeiten';
-import Graph from './Graph';
+import EnergyTipps from './components/EnergyTippsComponent';
+import StromsparZeiten from './components/StromsparZeiten';
+import Graph from './components/Graph';
 
 const Stack = createNativeStackNavigator();
 
