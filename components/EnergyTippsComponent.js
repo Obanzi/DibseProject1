@@ -6,19 +6,14 @@
  * @flow strict-local
  */
 
-import React, {Component} from 'react';
-import type {Node} from 'react';
+import React from 'react';
 
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
   View,
-  Button,
-  Image,
 } from 'react-native';
 import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
 import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
@@ -58,6 +53,5 @@ function EnergyTipps() {
     </SafeAreaView>
   );
 }
-
 
 export default EnergyTipps;
