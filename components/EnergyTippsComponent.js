@@ -9,11 +9,14 @@
 import React from 'react';
 
 import {
+  Button,
+  Linking,
   SafeAreaView,
   ScrollView,
   StatusBar,
   useColorScheme,
   View,
+  StyleSheet,
 } from 'react-native';
 import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
 import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
@@ -48,10 +51,30 @@ function EnergyTipps() {
           <EnergiesparTipp_4_component />
           <EnergiesparTipp_5_component />
           <EnergiesparTipp_6_component />
+          <Button
+            style={styles.button}
+            title="Send us a message ! :)"
+            onPress={() => Linking.openURL('mailto:heimay237@gmail.com')}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
+  button: {
+    backgroundColor: 'red',
+    color: 'green',
+    padding: 100,
+    borderRadius: 5,
+    fontSize: 200,
+    hight: 100,
+    width: 100,
+  },
+});
 
 export default EnergyTipps;

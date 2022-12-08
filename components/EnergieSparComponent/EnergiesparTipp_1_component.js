@@ -1,18 +1,14 @@
 import React from 'react';
-import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image, TouchableOpacity, Alert} from 'react-native';
 import EnergiesparTipp_1_further_component from './FurtherInformationComponent/EnergiesparTipp_1_further_component';
 
 const EnergieTipp1 = props => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={<EnergiesparTipp_1_further_component />}>
-        <Image
-          source={require('../images/EnergieSparTipp1.png')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
+      <Image
+        source={require('../images/EnergieSparTipp1.png')}
+        style={styles.image}
+      />
     </View>
   );
 };
