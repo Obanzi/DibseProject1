@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import type {Node} from 'react';
+import EnergiesparTipp_1_component from './EnergiesparTipp_1_component';
 import {
   SafeAreaView,
   ScrollView,
@@ -19,80 +20,8 @@ import {
   Button,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
 const EnergyTipps: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">Erst mal ein Bier aufmachen !</Section>
-          <Section title="Step Two">
-            Gruppen müssen eingeteilt werden und anschließend Rollen vergeben
-          </Section>
-          <Section title="Step Three">Projektplan muss erstellt werden</Section>
-          <Section title="Step Four">
-            Project-Idee muss konzepiert werden
-          </Section>
-          <Section title="Step Five">
-            Vorstellung der Idee und des Projektes am 05.Dezember
-          </Section>
-          <Section title="Step Six">
-            Projekt muss bis zum 19.Dezember fertig sein
-          </Section>
-          <Section title="Step Seven">
-            RIP Projekt, es lebe das nächste Projekt
-          </Section>
-          <Section title="Step Eight">
-            Ende Gut alles Gut, oder so ähnlich
-          </Section>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  return <EnergiesparTipp_1_component />;
 };
 
 const styles = StyleSheet.create({
