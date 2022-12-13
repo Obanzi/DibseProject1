@@ -6,53 +6,193 @@
  * @flow strict-local
  */
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {
+  Dimensions,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+} from 'react-native';
 import {Button, Card} from 'react-native-paper';
+import EnergieTipp3 from './components/EnergieSparComponent/EnergiesparTipp_3_component';
 
 function HomeScreen({navigation}) {
   return (
-    <ScrollView style={styles.scrollView}>
-      <Card style={styles.card}>
-        <Card.Title title="Energiespartipps jetzt ansehen !" />
-        <Card.Content>
-          <Button
-            mode="contained"
+    <View>
+      <ImageBackground
+        source={require('./components/images/BackgroundCropped.png')}
+        resizeMode="absolute"
+        style={styles.img}>
+        <Text style={styles.VigorisStyle}>Vigoris</Text>
+        <Text style={styles.title}>Energie-Spar-Tipp des Tages !</Text>
+        <Image
+          style={styles.logo}
+          source={require('./components/images/EnergieSparTipp3.png')}
+        />
+        <Image
+          style={styles.IdeaGuy}
+          source={require('./components/images/IdeaGuy.png')}
+        />
+        <Text style={styles.titleStromsparen}>Aktuelle Stromsparzeiten</Text>
+        <View style={styles.EnergiesparzeitenView}>
+          <Image
+            style={styles.Energiesparzeiten}
+            source={require('./components/images/BeispielFotoEnergiesparZeiten.png')}
+          />
+        </View>
+        <View style={styles.Navigation}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Image
+              style={styles.HomeButton}
+              source={require('./components/images/HomeButton.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() => navigation.navigate('Energiespar Tipps !')}>
-            Jetzt ansehen !
-          </Button>
-        </Card.Content>
-      </Card>
-      <Card style={styles.card}>
-        <Card.Title title="Graphen jetzt ansehen !" />
-        <Card.Content>
-          <Button mode="contained" onPress={() => navigation.navigate('Graph')}>
-            Jetzt ansehen !
-          </Button>
-        </Card.Content>
-      </Card>
-      <Card style={styles.card}>
-        <Card.Title title="StromsparZeiten jetzt ansehen !" />
-        <Card.Content>
-          <Button
-            mode="contained"
+            <Image
+              style={styles.SpartippsButton}
+              source={require('./components/images/GraphButton.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Graph')}>
+            <Image
+              style={styles.GraphButton}
+              source={require('./components/images/ChartbarButton.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() => navigation.navigate('StromSpar-Zeiten')}>
-            Jetzt ansehen !
-          </Button>
-        </Card.Content>
-      </Card>
-    </ScrollView>
+            <Image
+              style={styles.StromsparButton}
+              source={require('./components/images/EinstellungsButton.png')}
+            />
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'black',
-    paddingTop: 10,
+  HomeButton: {
+    height: 100,
+    width: 100,
+    position: 'center',
+    left: '0%',
+    bottom: 0,
+    borderWidth: 3,
+    borderColor: '#009688',
   },
-  card: {
-    width: '90%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+  SpartippsButton: {
+    height: 100,
+    width: 100,
+    position: 'center',
+    left: '0%',
+    bottom: 0,
+    borderWidth: 3,
+    borderColor: '#009688',
+  },
+  GraphButton: {
+    height: 100,
+    width: 100,
+    position: 'center',
+    left: '0%',
+    bottom: 0,
+    borderWidth: 3,
+    borderColor: '#009688',
+  },
+  StromsparButton: {
+    height: 100,
+    width: 100,
+    position: 'center',
+    left: '0%',
+    bottom: 0,
+    borderWidth: 3,
+    borderColor: '#009688',
+  },
+  appButtonText: {
+    fontSize: 1,
+    color: '#fff',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  img: {
+    height: '100%',
+    width: '100%',
+  },
+  logo: {
+    width: 250,
+    height: 160,
+    position: 'absolute',
+    top: '17%',
+    left: '5%',
+  },
+  IdeaGuy: {
+    width: 150,
+    height: 200,
+    position: 'absolute',
+    top: '28%',
+    left: '57%',
+  },
+  title: {
+    fontSize: 20,
+    color: '#009688',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+    position: 'absolute',
+    top: '14%',
+    left: '10%',
+  },
+  titleStromsparen: {
+    fontSize: 20,
+    color: '#009688',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+    position: 'absolute',
+    top: '53%',
+    left: '10%',
+  },
+  VigorisStyle: {
+    fontStyle: 'italic',
+    textDecorationLine: 'underline',
+    fontSize: 30,
+    color: '#000',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+    position: 'absolute',
+    top: '7%',
+    left: '60%',
+  },
+  Energiesparzeiten: {
+    width: 220,
+    height: 240,
+    top: '200%',
+    borderWidth: 3,
+    borderColor: '#009688',
+  },
+  EnergiesparzeitenView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  Navigation: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 

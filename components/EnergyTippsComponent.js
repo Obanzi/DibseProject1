@@ -20,6 +20,8 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
+  ImageBackground,
+  Dimensions,
 } from 'react-native';
 import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
 import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
@@ -29,7 +31,9 @@ import EnergiesparTipp_5_component from './EnergieSparComponent/EnergiesparTipp_
 import EnergiesparTipp_6_component from './EnergieSparComponent/EnergiesparTipp_6_component';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-function Spacer(props: { height: number }) {
+import {sendEmail} from './EnergieSparComponent/ContactUs';
+
+function Spacer(props: {height: number}) {
   return null;
 }
 
@@ -40,59 +44,54 @@ function EnergyTipps() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.white : Colors.white,
-          }}>
-          <Text style={styles.textStyleHeader}>Energiespar-Tipps</Text>
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Heinz am 22.12.2022
-          </Text>
-          <EnergiesparTipp_1_component />
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Judith am 19.12.2022
-          </Text>
-          <EnergiesparTipp_2_component />
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Martin am 15.12.2022
-          </Text>
-          <EnergiesparTipp_3_component />
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Matthias am 12.12.2022
-          </Text>
-          <EnergiesparTipp_4_component />
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Philipp am 09.12.2022
-          </Text>
-          <EnergiesparTipp_5_component />
-          <Text style={styles.textStyleNormal}>
-            Energiespartipp von Nic am 05.12.2022
-          </Text>
-          <EnergiesparTipp_6_component />
-          <AppButton
-            title="Schicke uns deine Energiespartipps ! :)"
-            onPress={() => Linking.openURL('mailto:heimay237@gmail.com')}
-          />
-        </View>
-        <View style={styles.inputView}>
-          <Spacer height={20} />
-          <TextInput
-            label={'Schicke uns deine Energiespartipps ! :)'}
-            multiline
-            inputStyle={styles.inputStyle}
-          />
-          <Spacer height={20} />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <View>
+      <ImageBackground
+        source={require('./images/BackgroundCropped.png')}
+        resizeMode="cover"
+        style={styles.img}>
+        <ScrollView>
+          <View style={styles.container}>
+            <Text style={styles.textStyleHeader}>Energiespar-Tipps</Text>
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Heinz am 22.12.2022
+            </Text>
+            <EnergiesparTipp_1_component />
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Judith am 19.12.2022
+            </Text>
+            <EnergiesparTipp_2_component />
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Martin am 15.12.2022
+            </Text>
+            <EnergiesparTipp_3_component />
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Matthias am 12.12.2022
+            </Text>
+            <EnergiesparTipp_4_component />
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Philipp am 09.12.2022
+            </Text>
+            <EnergiesparTipp_5_component />
+            <Text style={styles.textStyleNormal}>
+              Energiespartipp von Nic am 05.12.2022
+            </Text>
+            <EnergiesparTipp_6_component />
+            <AppButton
+              title="Schicke uns deine Energiespartipps ! :)"
+              style={styles.appButtonContainer}
+              onPress={() =>
+                //Linking.openURL('mailto:heimay237@gmail.com')}
+                sendEmail(
+                  'vigorisdibse@gmail.com',
+                  'Neuer Energiespartipp !',
+                  'Hallo liebes Vigoris Team ! Ich habe einen neuen Energiespartipp für euch !',
+                )
+              }
+            />
+          </View>
+        </ScrollView>
+      </ImageBackground>
+    </View>
   );
 }
 
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 20,
   },
   textStyleNormal: {
@@ -150,6 +149,16 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     paddingTop: 20,
+  },
+  img: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: -1,
   },
 });
 

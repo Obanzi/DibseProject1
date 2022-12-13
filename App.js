@@ -14,10 +14,26 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Energiespar Tipps !" component={EnergyTipps} />
-          <Stack.Screen name="Graph" component={Graph} />
-          <Stack.Screen name="StromSpar-Zeiten" component={StromsparZeiten} />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Home"
+            component={HomeScreen}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Energiespar Tipps !"
+            component={EnergyTipps}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Graph"
+            component={Graph}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="StromSpar-Zeiten"
+            component={StromsparZeiten}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
