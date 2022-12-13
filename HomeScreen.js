@@ -16,8 +16,6 @@ import {
   View,
   Image,
 } from 'react-native';
-import {Button, Card} from 'react-native-paper';
-import EnergieTipp3 from './components/EnergieSparComponent/EnergiesparTipp_3_component';
 
 function HomeScreen({navigation}) {
   return (
