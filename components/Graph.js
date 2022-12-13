@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import NavigationBar from './NavigationBar';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -49,7 +50,7 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const EnergyTipps: () => Node = () => {
+function Graph({navigation}) {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -89,11 +90,12 @@ const EnergyTipps: () => Node = () => {
           <Section title="Step Eight">
             Ende Gut alles Gut, oder so ähnlich
           </Section>
+          <NavigationBar navigation={navigation} />
         </View>
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   sectionContainer: {
@@ -114,4 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EnergyTipps;
+export default Graph;

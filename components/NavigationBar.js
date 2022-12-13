@@ -1,94 +1,43 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-
 import {
-  ScrollView,
-  useColorScheme,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  ImageBackground,
   Dimensions,
   Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
-import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
-import EnergiesparTipp_3_component from './EnergieSparComponent/EnergiesparTipp_3_component';
-import EnergiesparTipp_4_component from './EnergieSparComponent/EnergiesparTipp_4_component';
-import EnergiesparTipp_5_component from './EnergieSparComponent/EnergiesparTipp_5_component';
-import EnergiesparTipp_6_component from './EnergieSparComponent/EnergiesparTipp_6_component';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import {sendEmail} from './EnergieSparComponent/ContactUs';
-import NavigationBar from './NavigationBar';
-
-function EnergyTipps({navigation}) {
+function NavigationBar({navigation}) {
   return (
-    <View>
-      <ImageBackground
-        source={require('./images/BackgroundCropped.png')}
-        resizeMode="cover"
-        style={styles.img}>
-        <ScrollView>
-          <View style={styles.container}>
-            <Text style={styles.textStyleHeader}>Energiespar-Tipps</Text>
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Heinz am 22.12.2022
-            </Text>
-            <EnergiesparTipp_1_component />
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Judith am 19.12.2022
-            </Text>
-            <EnergiesparTipp_2_component />
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Martin am 15.12.2022
-            </Text>
-            <EnergiesparTipp_3_component />
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Matthias am 12.12.2022
-            </Text>
-            <EnergiesparTipp_4_component />
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Philipp am 09.12.2022
-            </Text>
-            <EnergiesparTipp_5_component />
-            <Text style={styles.textStyleNormal}>
-              Energiespartipp von Nic am 05.12.2022
-            </Text>
-            <EnergiesparTipp_6_component />
-            <AppButton
-              title="Schicke uns deine Energiespartipps ! :)"
-              style={styles.appButtonContainer}
-              onPress={() =>
-                //Linking.openURL('mailto:heimay237@gmail.com')}
-                sendEmail(
-                  'vigorisdibse@gmail.com',
-                  'Neuer Energiespartipp !',
-                  'Hallo liebes Vigoris Team ! Ich habe einen neuen Energiespartipp für euch !',
-                )
-              }
-            />
-            <NavigationBar navigation={navigation} />
-          </View>
-        </ScrollView>
-      </ImageBackground>
+    <View style={styles.Navigation}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Image
+          style={styles.HomeButton}
+          source={require('./images/HomeButton.png')}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Energiespar Tipps !')}>
+        <Image
+          style={styles.SpartippsButton}
+          source={require('./images/GraphButton.png')}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Graph')}>
+        <Image
+          style={styles.GraphButton}
+          source={require('./images/ChartbarButton.png')}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('StromSpar-Zeiten')}>
+        <Image
+          style={styles.StromsparButton}
+          source={require('./images/EinstellungsButton.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
-
-const AppButton = ({onPress, title}) => (
-  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-    <Text style={styles.appButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -257,4 +206,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EnergyTipps;
+export default NavigationBar;
