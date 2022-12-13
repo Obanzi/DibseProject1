@@ -4,8 +4,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
+  Text,
+  TouchableHighlight,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Tooltip from 'react-native-walkthrough-tooltip';
 
 function NavigationBar({navigation}) {
   return (

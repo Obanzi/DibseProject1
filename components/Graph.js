@@ -22,8 +22,6 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import NavigationBar from './NavigationBar';
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (

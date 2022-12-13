@@ -17,15 +17,16 @@
     "@react-navigation/native-stack": "^6.9.5",
     "emailjs-com": "^3.2.0",
     "expo": "^47.0.8",
+    "expo-device": "~5.0.0",
+    "expo-notifications": "~0.17.0",
     "native-notify": "^3.0.2",
     "qs": "^6.11.0",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-paper": "^5.0.1",
     "react-native-push-notification": "^8.1.1",
-    "react-navigation": "^4.4.4",
-    "expo-device": "~5.0.0",
-    "expo-notifications": "~0.17.0"
+    "react-native-walkthrough-tooltip": "^1.4.0",
+    "react-navigation": "^4.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
