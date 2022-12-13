@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-import React, {Component} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -16,11 +15,10 @@ import {
   Text,
   useColorScheme,
   View,
-  Button,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import NavigationBar from "./NavigationBar";
+import NavigationBar from './NavigationBar';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -95,7 +93,7 @@ function Stromsparzeiten({navigation}) {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   sectionContainer: {
