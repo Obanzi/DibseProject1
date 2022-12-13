@@ -6,10 +6,13 @@ import HomeScreen from './HomeScreen';
 import EnergyTipps from './components/EnergyTippsComponent';
 import StromsparZeiten from './components/StromsparZeiten';
 import Graph from './components/Graph';
+import registerNNPushToken from 'native-notify';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  registerNNPushToken(5300, 'pF8di0UaJNQKdsewqrvpo5');
   return (
     <PaperProvider>
       <NavigationContainer>
