@@ -50,7 +50,7 @@ const LoginScreen = () => {
   return (
     <ImageBackground
       source={require('./components/images/BackgroundCropped.png')}
-      resizeMode="absolute"
+      //resizeMode="absolute"
       style={styles.img}>
       <Text style={styles.VigorisStyle}>Vigoris</Text>
       <KeyboardAvoidingView style={styles.container} behavior="padding">

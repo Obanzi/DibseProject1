@@ -35,7 +35,7 @@ function EnergyTipps({navigation}) {
     <View>
       <ImageBackground
         source={require('./images/BackgroundCropped.png')}
-        resizeMode="cover"
+        //resizeMode="cover"
         style={styles.img}>
         <ScrollView>
           <View style={styles.container}>
