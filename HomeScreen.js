@@ -15,9 +15,26 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Button,
 } from 'react-native';
+import {authentication} from './firebase';
+import {signOut} from 'firebase/auth';
 
 function HomeScreen({navigation}) {
+  const signOutUser = () => {
+    signOut(authentication)
+      .then(() => {
+        console.log('User signed out!');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  const functioncombined = () => {
+    signOutUser();
+    navigation.navigate('LoginScreen');
+  };
+
   return (
     <View>
       <ImageBackground
@@ -69,6 +86,14 @@ function HomeScreen({navigation}) {
             />
           </TouchableOpacity>
         </View>
+        <View style={styles.SignOutButton}>
+          <TouchableOpacity onPress={() => functioncombined()}>
+            <Image
+              style={styles.SignOutButton}
+              source={require('./components/images/SignOutButton.png')}
+            />
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -83,6 +108,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderWidth: 3,
     borderColor: '#009688',
+  },
+  SignOutButton: {
+    height: 50,
+    width: 50,
+    position: 'center',
+    left: '7%',
+    top: '-21%',
   },
   SpartippsButton: {
     height: 100,

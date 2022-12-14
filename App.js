@@ -7,7 +7,7 @@ import EnergyTipps from './components/EnergyTippsComponent';
 import StromsparZeiten from './components/StromsparZeiten';
 import Graph from './components/Graph';
 import registerNNPushToken from 'native-notify';
-
+import LoginScreen from './LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +17,11 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LoginScreen"
+            component={LoginScreen}
+          />
           <Stack.Screen
             options={{headerShown: false}}
             name="Home"
