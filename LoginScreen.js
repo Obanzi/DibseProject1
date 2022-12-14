@@ -28,7 +28,7 @@ const LoginScreen = () => {
     });
 
     return unsubscribe;
-  }, []);
+  }, [navigation]);
 
   const handleSignUp = () => {
     createUserWithEmailAndPassword(authentication, email, password)
