@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState} from 'react';
 import {
+  Alert,
   ImageBackground,
   KeyboardAvoidingView,
   StyleSheet,
@@ -35,7 +36,7 @@ const LoginScreen = () => {
         const user = userCredentials.user;
         console.log('Registered with:', user.email);
       })
-      .catch(error => console.log(error));
+      .catch(error => Alert.alert('Not a valid email or password'));
   };
   const handleLogin = () => {
     signInWithEmailAndPassword(authentication, email, password)
@@ -43,7 +44,7 @@ const LoginScreen = () => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
       })
-      .catch(error => alert(error.message));
+      .catch(error => Alert.alert('User not found'));
   };
 
   return (
