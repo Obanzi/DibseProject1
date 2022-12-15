@@ -139,7 +139,6 @@ const styles = StyleSheet.create({
   img: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
@@ -149,7 +148,6 @@ const styles = StyleSheet.create({
   HomeButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -158,7 +156,6 @@ const styles = StyleSheet.create({
   SpartippsButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -167,7 +164,6 @@ const styles = StyleSheet.create({
   GraphButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -176,7 +172,6 @@ const styles = StyleSheet.create({
   StromsparButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -189,14 +184,12 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 160,
-    position: 'absolute',
     top: '17%',
     left: '5%',
   },
   IdeaGuy: {
     width: 150,
     height: 200,
-    position: 'absolute',
     top: '28%',
     left: '57%',
   },
@@ -206,7 +199,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
     top: '14%',
     left: '10%',
   },
@@ -216,7 +208,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
     top: '53%',
     left: '10%',
   },
@@ -228,7 +219,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
     top: '7%',
     left: '60%',
   },
@@ -244,7 +234,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Navigation: {
-    position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,

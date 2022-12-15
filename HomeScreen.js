@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
   HomeButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -108,14 +107,12 @@ const styles = StyleSheet.create({
   SignOutButton: {
     height: 50,
     width: 50,
-    position: 'center',
     left: '7%',
-    top: '-21%',
+    top: '-82%',
   },
   SpartippsButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -124,7 +121,6 @@ const styles = StyleSheet.create({
   GraphButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -133,7 +129,6 @@ const styles = StyleSheet.create({
   StromsparButton: {
     height: 100,
     width: 100,
-    position: 'center',
     left: '0%',
     bottom: 0,
     borderWidth: 3,
@@ -157,15 +152,13 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 160,
-    position: 'absolute',
-    top: '17%',
+    top: '10%',
     left: '5%',
   },
   IdeaGuy: {
     width: 150,
     height: 200,
-    position: 'absolute',
-    top: '28%',
+    top: '3%',
     left: '57%',
   },
   title: {
@@ -174,9 +167,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
-    top: '14%',
-    left: '10%',
+    top: '10%',
+    left: '0%',
   },
   titleStromsparen: {
     fontSize: 20,
@@ -184,9 +176,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
-    top: '53%',
-    left: '10%',
+    top: '5%',
+    left: '0%',
   },
   VigorisStyle: {
     fontStyle: 'italic',
@@ -196,14 +187,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
     top: '7%',
-    left: '60%',
+    left: '28%',
   },
   Energiesparzeiten: {
     width: 220,
     height: 240,
-    top: '200%',
+    top: '20%',
     borderWidth: 3,
     borderColor: '#009688',
   },
@@ -212,8 +202,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Navigation: {
-    position: 'absolute',
-    bottom: 0,
+    bottom: '-15%',
     left: 0,
     right: 0,
     flexDirection: 'row',

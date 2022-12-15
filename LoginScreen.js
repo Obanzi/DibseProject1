@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    position: 'absolute',
     top: '20%',
   },
   buttonContainer: {
