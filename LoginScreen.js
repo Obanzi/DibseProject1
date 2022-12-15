@@ -50,7 +50,7 @@ const LoginScreen = () => {
   return (
     <ImageBackground
       source={require('./components/images/BackgroundCropped.png')}
-      //resizeMode="absolute"
+      resizeMode="absolute"
       style={styles.img}>
       <Text style={styles.VigorisStyle}>Vigoris</Text>
       <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -85,8 +85,6 @@ const LoginScreen = () => {
     </ImageBackground>
   );
 };
-
-export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -149,3 +147,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+export default LoginScreen;

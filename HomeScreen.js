@@ -39,7 +39,7 @@ function HomeScreen({navigation}) {
     <View>
       <ImageBackground
         source={require('./components/images/BackgroundCropped.png')}
-        //resizeMode="absolute"
+        resizeMode="absolute"
         style={styles.img}>
         <Text style={styles.VigorisStyle}>Vigoris</Text>
         <Text style={styles.title}>Energie-Spar-Tipp des Tages !</Text>
