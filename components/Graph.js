@@ -1,97 +1,13 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from 'react';
 
-import React, {Component} from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Button,
-} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import NavigationBar from './NavigationBar';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import {StyleSheet, Text, View, Button} from 'react-native';
 
 function Graph({navigation}) {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">Erst mal ein Bier aufmachen !</Section>
-          <Section title="Step Two">
-            Gruppen müssen eingeteilt werden und anschließend Rollen vergeben
-          </Section>
-          <Section title="Step Three">Projektplan muss erstellt werden</Section>
-          <Section title="Step Four">
-            Project-Idee muss konzepiert werden
-          </Section>
-          <Section title="Step Five">
-            Vorstellung der Idee und des Projektes am 05.Dezember
-          </Section>
-          <Section title="Step Six">
-            Projekt muss bis zum 19.Dezember fertig sein
-          </Section>
-          <Section title="Step Seven">
-            RIP Projekt, es lebe das nächste Projekt
-          </Section>
-          <Section title="Step Eight">
-            Ende Gut alles Gut, oder so ähnlich
-          </Section>
-          <NavigationBar navigation={navigation} />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <View>
+      <Text>Graph</Text>
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+    </View>
   );
 }
 
