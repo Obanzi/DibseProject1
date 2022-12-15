@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "366491909428",
+    "project_id": "vigoris-71057",
+    "storage_bucket": "vigoris-71057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366491909428:android:2b809d06c7d6ab83fe3961",
+        "android_client_info": {
+          "package_name": "com.company.vigoris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366491909428-40mvsuj16lll1eoif61ej9lhm07j08it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZCUuaSRxV7AKl7G_TiSZzBjEU3G9xCYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366491909428-40mvsuj16lll1eoif61ej9lhm07j08it.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366491909428-ltojvf7mikcpp7s0m0vvr8mdc9nofioe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.company.vigoris"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
