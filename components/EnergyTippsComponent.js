@@ -65,6 +65,7 @@ function EnergyTipps({navigation}) {
             />
           </View>
         </ScrollView>
+        <NavigationBar navigation={navigation} />
       </ImageBackground>
     </View>
   );

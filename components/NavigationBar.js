@@ -1,9 +1,4 @@
-import {
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 function NavigationBar({navigation}) {
   return (
@@ -71,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: '#009688',
   },
   Navigation: {
-    bottom: 0,
+    bottom: '-15%',
     left: 0,
     right: 0,
     flexDirection: 'row',
