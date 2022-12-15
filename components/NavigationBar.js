@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: '#009688',
   },
   Navigation: {
-    bottom: '-15%',
+    bottom: '-9%',
     left: 0,
     right: 0,
     flexDirection: 'row',
