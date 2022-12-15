@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 
 import {
@@ -65,7 +57,6 @@ function EnergyTipps({navigation}) {
               title="Schicke uns deine Energiespartipps ! :)"
               style={styles.appButtonContainer}
               onPress={() =>
-                //Linking.openURL('mailto:heimay237@gmail.com')}
                 sendEmail(
                   'vigorisdibse@gmail.com',
                   'Neuer Energiespartipp !',
@@ -75,7 +66,6 @@ function EnergyTipps({navigation}) {
             />
           </View>
         </ScrollView>
-        <NavigationBar navigation={navigation} />
       </ImageBackground>
     </View>
   );

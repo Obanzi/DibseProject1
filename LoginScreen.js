@@ -34,7 +34,6 @@ const LoginScreen = () => {
     createUserWithEmailAndPassword(authentication, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
-        console.log('Registered with:', user.email);
       })
       .catch(() => Alert.alert('Not a valid email or password'));
   };
@@ -42,7 +41,6 @@ const LoginScreen = () => {
     signInWithEmailAndPassword(authentication, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
       })
       .catch(() => Alert.alert('User not found'));
   };
