@@ -24,7 +24,7 @@ function HomeScreen({navigation}) {
   const signOutUser = () => {
     signOut(authentication)
       .then(() => {
-        console.log('User signed out!');
+        console.log('User signed out');
       })
       .catch(error => {
         console.log(error);
