@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 
 import {
@@ -23,7 +15,6 @@ import EnergiesparTipp_3_component from './EnergieSparComponent/EnergiesparTipp_
 import EnergiesparTipp_4_component from './EnergieSparComponent/EnergiesparTipp_4_component';
 import EnergiesparTipp_5_component from './EnergieSparComponent/EnergiesparTipp_5_component';
 import EnergiesparTipp_6_component from './EnergieSparComponent/EnergiesparTipp_6_component';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {sendEmail} from './EnergieSparComponent/ContactUs';
 import NavigationBar from './NavigationBar';
@@ -65,7 +56,6 @@ function EnergyTipps({navigation}) {
               title="Schicke uns deine Energiespartipps ! :)"
               style={styles.appButtonContainer}
               onPress={() =>
-                //Linking.openURL('mailto:heimay237@gmail.com')}
                 sendEmail(
                   'vigorisdibse@gmail.com',
                   'Neuer Energiespartipp !',
@@ -88,16 +78,13 @@ const AppButton = ({onPress, title}) => (
 );
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
   appButtonContainer: {
     elevation: 20,
     backgroundColor: '#009688',
     paddingVertical: 10,
     paddingHorizontal: 70,
     marginTop: 20,
-    marginBottom: '25.5%',
+    marginBottom: '0%',
   },
   appButtonText: {
     fontSize: 15,
@@ -124,18 +111,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 5,
   },
-  inputStyle: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    textAlignVertical: 'top',
-  },
-  inputView: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: '100%',
-    paddingTop: 20,
-  },
   img: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -144,102 +119,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-  },
-  HomeButton: {
-    height: 100,
-    width: 100,
-    left: '0%',
-    bottom: 0,
-    borderWidth: 3,
-    borderColor: '#009688',
-  },
-  SpartippsButton: {
-    height: 100,
-    width: 100,
-    left: '0%',
-    bottom: 0,
-    borderWidth: 3,
-    borderColor: '#009688',
-  },
-  GraphButton: {
-    height: 100,
-    width: 100,
-    left: '0%',
-    bottom: 0,
-    borderWidth: 3,
-    borderColor: '#009688',
-  },
-  StromsparButton: {
-    height: 100,
-    width: 100,
-    left: '0%',
-    bottom: 0,
-    borderWidth: 3,
-    borderColor: '#009688',
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 250,
-    height: 160,
-    top: '17%',
-    left: '5%',
-  },
-  IdeaGuy: {
-    width: 150,
-    height: 200,
-    top: '28%',
-    left: '57%',
-  },
-  title: {
-    fontSize: 20,
-    color: '#009688',
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-    top: '14%',
-    left: '10%',
-  },
-  titleStromsparen: {
-    fontSize: 20,
-    color: '#009688',
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-    top: '53%',
-    left: '10%',
-  },
-  VigorisStyle: {
-    fontStyle: 'italic',
-    textDecorationLine: 'underline',
-    fontSize: 30,
-    color: '#000',
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-    top: '7%',
-    left: '60%',
-  },
-  Energiesparzeiten: {
-    width: 220,
-    height: 240,
-    top: '200%',
-    borderWidth: 3,
-    borderColor: '#009688',
-  },
-  EnergiesparzeitenView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  Navigation: {
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
 });
 
