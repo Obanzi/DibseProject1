@@ -5,6 +5,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from './HomeScreen';
 import EnergyTipps from './components/EnergyTippsComponent';
 import SettingsComponent from './components/SettingsComponent';
+import EnergySavingTimes from './components/EnergySavingTimes';
 import Graph from './components/Graph';
 import registerNNPushToken from 'native-notify';
 import LoginScreen from './LoginScreen';
@@ -17,11 +18,6 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            options={{headerShown: false}}
-            name="LoginScreen"
-            component={LoginScreen}
-          />
           <Stack.Screen
             options={{headerShown: false}}
             name="Home"
@@ -39,8 +35,8 @@ export default function App() {
           />
           <Stack.Screen
             options={{headerShown: false}}
-            name="Settings"
-            component={SettingsComponent}
+            name="StromSpar-Zeiten"
+            component={EnergySavingTimes}
           />
         </Stack.Navigator>
       </NavigationContainer>
