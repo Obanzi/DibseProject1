@@ -11,8 +11,10 @@ import {
   View,
 } from 'react-native';
 import {authentication} from './firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {signInWithEmailAndPassword} from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -21,13 +23,11 @@ const LoginScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    const unsubscribe = authentication.onAuthStateChanged(user => {
+    return authentication.onAuthStateChanged(user => {
       if (user) {
         navigation.replace('Home');
       }
     });
-
-    return unsubscribe;
   }, [navigation]);
 
   const handleSignUp = () => {
@@ -36,7 +36,7 @@ const LoginScreen = () => {
         const user = userCredentials.user;
         console.log('Registered with:', user.email);
       })
-      .catch(error => Alert.alert('Not a valid email or password'));
+      .catch(() => Alert.alert('Not a valid email or password'));
   };
   const handleLogin = () => {
     signInWithEmailAndPassword(authentication, email, password)
@@ -44,13 +44,12 @@ const LoginScreen = () => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
       })
-      .catch(error => Alert.alert('User not found'));
+      .catch(() => Alert.alert('User not found'));
   };
 
   return (
     <ImageBackground
       source={require('./components/images/BackgroundCropped.png')}
-      resizeMode="absolute"
       style={styles.img}>
       <Text style={styles.VigorisStyle}>Vigoris</Text>
       <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -68,7 +67,7 @@ const LoginScreen = () => {
             value={password}
             onChangeText={text => setPassword(text)}
             style={styles.input}
-            secureTextEntry
+            secureTextEntry={true}
           />
         </View>
         <View style={styles.buttonContainer}>

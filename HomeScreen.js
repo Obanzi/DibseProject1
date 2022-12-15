@@ -7,15 +7,12 @@
  */
 import React from 'react';
 import {
-  Dimensions,
   ImageBackground,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Image,
-  Button,
 } from 'react-native';
 import {authentication} from './firebase';
 import {signOut} from 'firebase/auth';
@@ -39,7 +36,6 @@ function HomeScreen({navigation}) {
     <View>
       <ImageBackground
         source={require('./components/images/BackgroundCropped.png')}
-        resizeMode="absolute"
         style={styles.img}>
         <Text style={styles.VigorisStyle}>Vigoris</Text>
         <Text style={styles.title}>Energie-Spar-Tipp des Tages !</Text>

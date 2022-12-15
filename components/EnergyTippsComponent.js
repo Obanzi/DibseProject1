@@ -10,14 +10,12 @@ import React from 'react';
 
 import {
   ScrollView,
-  useColorScheme,
   View,
   StyleSheet,
   TouchableOpacity,
   Text,
   ImageBackground,
   Dimensions,
-  Image,
 } from 'react-native';
 import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
 import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
@@ -35,7 +33,6 @@ function EnergyTipps({navigation}) {
     <View>
       <ImageBackground
         source={require('./images/BackgroundCropped.png')}
-        //resizeMode="cover"
         style={styles.img}>
         <ScrollView>
           <View style={styles.container}>
