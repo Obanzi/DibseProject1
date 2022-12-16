@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from './HomeScreen';
 import EnergyTipps from './components/EnergyTippsComponent';
-import StromsparZeiten from './components/StromsparZeiten';
+import SettingsComponent from './components/SettingsComponent';
 import Graph from './components/Graph';
 import registerNNPushToken from 'native-notify';
 import LoginScreen from './LoginScreen';
@@ -39,8 +39,8 @@ export default function App() {
           />
           <Stack.Screen
             options={{headerShown: false}}
-            name="StromSpar-Zeiten"
-            component={StromsparZeiten}
+            name="Settings"
+            component={SettingsComponent}
           />
         </Stack.Navigator>
       </NavigationContainer>

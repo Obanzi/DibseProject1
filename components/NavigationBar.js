@@ -22,7 +22,7 @@ function NavigationBar({navigation}) {
           source={require('./images/ChartbarButton.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('StromSpar-Zeiten')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
         <Image
           style={styles.StromsparButton}
           source={require('./images/EinstellungsButton.png')}

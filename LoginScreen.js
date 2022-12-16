@@ -13,6 +13,8 @@ import {
 import {authentication} from './firebase';
 import {
   createUserWithEmailAndPassword,
+  getAuth,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
@@ -43,6 +45,19 @@ const LoginScreen = () => {
         const user = userCredentials.user;
       })
       .catch(() => Alert.alert('User not found'));
+  };
+
+  const resetPassword = () => {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert('Email sent');
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   };
 
   return (
@@ -78,6 +93,9 @@ const LoginScreen = () => {
             <Text style={styles.buttonOutlineText}>Register</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={resetPassword}>
+          <Text style={styles.buttonTextforgot}>Forgot Password?</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </ImageBackground>
   );
@@ -137,11 +155,16 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
+  buttonTextforgot: {
+    color: '#000',
+    fontWeight: '700',
+    fontSize: 14,
+    marginTop: 10,
+  },
   buttonOutlineText: {
     color: '#009688',
     fontWeight: '700',
     fontSize: 16,
   },
 });
-
 export default LoginScreen;
