@@ -89,13 +89,14 @@ const styles = StyleSheet.create({
     left: '57%',
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     color: '#009688',
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
     top: '10%',
     left: '0%',
+    textDecorationLine: 'underline',
   },
   titleProg: {
     fontSize: 20,
@@ -114,6 +115,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     top: '5%',
     left: '0%',
+    textDecorationLine: 'underline',
   },
   VigorisStyle: {
     fontStyle: 'italic',

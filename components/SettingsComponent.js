@@ -5,12 +5,6 @@ import ButtonComponent from './ButtonComponent';
 import {authentication} from '../firebase';
 import {signOut} from 'firebase/auth';
 import {sendEmail} from './EnergieSparComponent/ContactUs';
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
 
 function SettingsComponent({navigation}) {
   const signOutUser = () => {
@@ -49,11 +43,13 @@ function SettingsComponent({navigation}) {
         <View style={styles.LogOutButton}>
           <ButtonComponent
             title="Give us Feedback :)"
-            onPress={sendEmail.bind(
-              'vigorisdibse@gmail.com',
-              'Feedback Vigoris APP',
-              'Hallo liebes Vigoris Team ! Hier ist mein Feedback an Euch: ',
-            )}
+            onPress={() =>
+              sendEmail(
+                'vigorisdibse@gmail.com',
+                'Feedback Vigoris APP',
+                'Hallo liebes Vigoris Team ! Hier ist mein Feedback an Euch: ',
+              )
+            }
           />
         </View>
         <View style={styles.NaviBar}>
