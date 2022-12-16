@@ -1,5 +1,11 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, View, Dimensions} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+} from 'react-native';
 import NavigationBar from './NavigationBar';
 import ButtonComponent from './ButtonComponent';
 import {authentication} from '../firebase';
@@ -31,6 +37,7 @@ function SettingsComponent({navigation}) {
       <ImageBackground
         source={require('./images/BackgroundCropped.png')}
         style={styles.img}>
+        <Text style={styles.text}>Settings</Text>
         <View style={styles.LogOutButton}>
           <ButtonComponent
             title="Turn notifications off"
@@ -52,6 +59,8 @@ function SettingsComponent({navigation}) {
             }
           />
         </View>
+        <Text style={styles.textEnd}>Thank you for using Vigoris!</Text>
+        <Text style={styles.textEnd}>Version 0.1</Text>
         <View style={styles.NaviBar}>
           <NavigationBar navigation={navigation} />
         </View>
@@ -61,6 +70,21 @@ function SettingsComponent({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: '#009688',
+    textAlign: 'center',
+    marginTop: 20,
+    top: '15%',
+  },
+  textEnd: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#009688',
+    textAlign: 'center',
+    top: '46%',
+  },
   LogOutButton: {
     top: '30%',
     left: 0,
@@ -79,7 +103,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   NaviBar: {
-    top: '58%',
+    top: '46%',
   },
 });
 

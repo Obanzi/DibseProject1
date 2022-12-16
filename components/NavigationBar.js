@@ -9,14 +9,14 @@ function NavigationBar({navigation}) {
           source={require('./images/HomeButton.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Energiespar Tipps !')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Graph')}>
         <Image
           style={styles.SpartippsButton}
           source={require('./images/GraphButton.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Graph')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Energiespar Tipps !')}>
         <Image
           style={styles.GraphButton}
           source={require('./images/ChartbarButton.png')}
