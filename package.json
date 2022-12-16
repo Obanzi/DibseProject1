@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
+    "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-community/push-notification-ios": "^1.10.1",
     "@react-native-firebase/messaging": "^16.4.6",
     "@react-navigation/core": "^6.4.5",
@@ -25,11 +26,12 @@
     "qs": "^6.11.0",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-paper": "^5.0.1",
     "react-native-push-notification": "^8.1.1",
+    "react-native-svg": "^13.6.0",
     "react-native-walkthrough-tooltip": "^1.4.0",
-    "react-navigation": "^4.4.4",
-    "@react-native-async-storage/async-storage": "~1.17.3"
+    "react-navigation": "^4.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
