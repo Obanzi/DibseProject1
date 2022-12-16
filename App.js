@@ -20,6 +20,11 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen
             options={{headerShown: false}}
+            name="LoginScreen"
+            component={LoginScreen}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
             name="Home"
             component={HomeScreen}
           />
@@ -37,6 +42,11 @@ export default function App() {
             options={{headerShown: false}}
             name="StromSpar-Zeiten"
             component={EnergySavingTimes}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Settings"
+            component={SettingsComponent}
           />
         </Stack.Navigator>
       </NavigationContainer>
