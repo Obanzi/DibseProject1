@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React from 'react';
 import {
   ImageBackground,
@@ -26,6 +19,10 @@ function HomeScreen({navigation}) {
       <ImageBackground
         source={require('./components/images/BackgroundCropped.png')}
         style={styles.img}>
+        <Image
+          style={styles.logoEnergie}
+          source={require('./components/images/BMIBild.png')}
+        />
         <Text style={styles.VigorisStyle}>Vigoris</Text>
         <Text style={styles.title}>Energie-Spar-Tipp des Tages !</Text>
         <Image
@@ -38,7 +35,8 @@ function HomeScreen({navigation}) {
         />
         <Text style={styles.titleStromsparen}>Aktuelle Stromsparzeiten</Text>
         <Text style={styles.titleProg}>
-          Prognose der Stromspar-{'\n'}Stunden für {DateDay}.{DateMonth}.{DateYear}
+          Prognose der Stromspar-{'\n'}Stunden für {DateDay}.{DateMonth}.
+          {DateYear}
         </Text>
         <Image
           style={styles.Clock}
@@ -56,14 +54,19 @@ function HomeScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  logoEnergie: {
+    width: 200,
+    height: 28,
+    top: '6%',
+  },
   Clock: {
     width: 100,
     height: 100,
-    top: '8%',
+    top: '3%',
     left: '39%',
   },
   energySaving: {
-    top: '6%',
+    top: '2%',
     width: '100%',
     height: '15%',
   },
@@ -79,13 +82,13 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 160,
-    top: '10%',
+    top: '5%',
     left: '5%',
   },
   IdeaGuy: {
     width: 150,
     height: 200,
-    top: '3%',
+    top: '0%',
     left: '57%',
   },
   title: {
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '10%',
+    top: '5%',
     left: '0%',
     textDecorationLine: 'underline',
   },
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '6%',
+    top: '2%',
     left: '3%',
   },
   titleStromsparen: {
@@ -113,7 +116,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '5%',
+    top: '0%',
     left: '0%',
     textDecorationLine: 'underline',
   },
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '7%',
+    top: '2%',
     left: '28%',
   },
   Energiesparzeiten: {
@@ -141,7 +144,7 @@ const styles = StyleSheet.create({
     top: '103%',
   },
   NaviBar: {
-    top: '2.5%',
+    top: '-1.3%',
   },
 });
 
