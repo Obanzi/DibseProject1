@@ -89,7 +89,10 @@ function Graph({navigation}) {
           style={styles.input}
           placeholder="Energieverbrauch in kWh"
           placeholderTextColor="#009688"
+          keyboardType="numeric"
           onChangeText={text => setVar1(text)}
+          returnKeyType="done"
+          onKeyPress={keyPress => console.log(keyPress)}
         />
         <Text style={styles.titleEinspeisung}>Aktuellen Kosten!</Text>
         <Text style={styles.titleKosten}>
