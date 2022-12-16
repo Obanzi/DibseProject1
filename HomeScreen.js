@@ -15,8 +15,12 @@ import {
   Dimensions,
 } from 'react-native';
 import NavigationBar from './components/NavigationBar';
+import EnergySavingTimes from './components/EnergySavingTimes';
 
 function HomeScreen({navigation}) {
+  let DateMonth = new Date().getMonth() + 1;
+  let DateDay = new Date().getDate();
+  let DateYear = new Date().getFullYear();
   return (
     <View>
       <ImageBackground
@@ -33,11 +37,15 @@ function HomeScreen({navigation}) {
           source={require('./components/images/IdeaGuy.png')}
         />
         <Text style={styles.titleStromsparen}>Aktuelle Stromsparzeiten</Text>
-        <View style={styles.EnergiesparzeitenView}>
-          <Image
-            style={styles.Energiesparzeiten}
-            source={require('./components/images/BeispielFotoEnergiesparZeiten.png')}
-          />
+        <Text style={styles.titleProg}>
+          Prognose der Stromspar-{'\n'}Stunden für {DateDay}.{DateMonth}.{DateYear}
+        </Text>
+        <Image
+          style={styles.Clock}
+          source={require('./components/images/Clock.png')}
+        />
+        <View style={styles.energySaving}>
+          <EnergySavingTimes />
         </View>
         <View style={styles.NaviBar}>
           <NavigationBar navigation={navigation} />
@@ -48,6 +56,17 @@ function HomeScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  Clock: {
+    width: 100,
+    height: 100,
+    top: '8%',
+    left: '39%',
+  },
+  energySaving: {
+    top: '6%',
+    width: '100%',
+    height: '15%',
+  },
   img: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -78,8 +97,17 @@ const styles = StyleSheet.create({
     top: '10%',
     left: '0%',
   },
-  titleStromsparen: {
+  titleProg: {
     fontSize: 20,
+    color: '#009688',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+    top: '6%',
+    left: '3%',
+  },
+  titleStromsparen: {
+    fontSize: 25,
     color: '#009688',
     fontWeight: 'bold',
     alignSelf: 'center',
@@ -108,9 +136,10 @@ const styles = StyleSheet.create({
   EnergiesparzeitenView: {
     justifyContent: 'center',
     alignItems: 'center',
+    top: '103%',
   },
   NaviBar: {
-    top: '7%',
+    top: '2.5%',
   },
 });
 

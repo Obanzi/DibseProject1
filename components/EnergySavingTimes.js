@@ -1,8 +1,8 @@
-import React, {Text, FlatList, View} from 'react-native';
+import React, {Text, FlatList, View, StyleSheet, Image} from 'react-native';
 import {ActivityIndicator, Card} from 'react-native-paper';
 import {useEffect, useState} from 'react';
 
-const EnergySavingTimes = (): Node => {
+function EnergySavingTimes() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const getSavingTimes = async () => {
@@ -54,23 +54,41 @@ const EnergySavingTimes = (): Node => {
     times.push({startDate: startDate, endDate: endDate});
   }
   return (
-    <View style={{flex: 1, padding: 24}}>
+    <View style={styles.container}>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
         <FlatList
           data={times}
           renderItem={({item}) => (
-            <Card>
-              <Text>
-                Von {item.startDate.getHours()}:{item.startDate.getMinutes()} bis {item.endDate.getHours()}:{item.endDate.getMinutes()}
-              </Text>
-            </Card>
+            <Text style={styles.text}>
+              Von {item.startDate.getHours()}:{item.startDate.getMinutes()}
+              {item.startDate.getMinutes()} bis {item.endDate.getHours()}:
+              {item.endDate.getMinutes()}
+              {item.startDate.getMinutes()}
+            </Text>
           )}
         />
       )}
     </View>
   );
-};
+}
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 25,
+    color: '#009688',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    top: '5%',
+    left: '0%',
+  },
+  container: {
+    flex: 1,
+    padding: 24,
+    height: 100,
+    width: '100%',
+  },
+});
 
 export default EnergySavingTimes;

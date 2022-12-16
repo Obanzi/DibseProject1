@@ -40,11 +40,6 @@ export default function App() {
           />
           <Stack.Screen
             options={{headerShown: false}}
-            name="StromSpar-Zeiten"
-            component={EnergySavingTimes}
-          />
-          <Stack.Screen
-            options={{headerShown: false}}
             name="Settings"
             component={SettingsComponent}
           />
