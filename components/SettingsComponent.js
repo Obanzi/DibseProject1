@@ -5,6 +5,12 @@ import ButtonComponent from './ButtonComponent';
 import {authentication} from '../firebase';
 import {signOut} from 'firebase/auth';
 import {sendEmail} from './EnergieSparComponent/ContactUs';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 function SettingsComponent({navigation}) {
   const signOutUser = () => {
@@ -16,6 +22,7 @@ function SettingsComponent({navigation}) {
         console.log(error);
       });
   };
+
   const functioncombined = () => {
     signOutUser();
     navigation.navigate('LoginScreen');
