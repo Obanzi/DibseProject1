@@ -24,7 +24,7 @@ function NavigationBar({navigation}) {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
         <Image
-          style={styles.StromsparButton}
+          style={styles.SettingsButton}
           source={require('./images/EinstellungsButton.png')}
         />
       </TouchableOpacity>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#009688',
   },
-  StromsparButton: {
+  SettingsButton: {
     height: 100,
     width: 100,
     left: '0%',
