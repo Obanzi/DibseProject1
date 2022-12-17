@@ -53,10 +53,17 @@ function EnergySavingTimes() {
     endDate.setHours(endDate.getHours() + 1); // we always get the beginning of the hour, we need the end
     times.push({startDate: startDate, endDate: endDate});
   }
+
+  let alternative = isLoading
+    ? 'Loading...'
+    : 'Der österreichische Stromverbrauch kann zu einem hohen Anteil aus\n' +
+      '          erneuerbaren Quellen gedeckt werden. Dennoch bitte wo möglich Energie sparen!';
+
   return (
     <View style={styles.container}>
+      <Text style={styles.textalternative}>{alternative}</Text>
       {isLoading ? (
-        <Text style={styles.alternativeText}>
+        <Text style={styles.textalternative}>
           Der Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
           erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
           sparen!
@@ -79,11 +86,13 @@ function EnergySavingTimes() {
 }
 
 const styles = StyleSheet.create({
-  alternativeText: {
-    fontSize: 25,
+  textalternative: {
+    fontSize: 15,
     color: '#009688',
+    fontWeight: 'bold',
     textAlign: 'center',
-    margin: 10,
+    top: '5%',
+    left: '0%',
   },
   text: {
     fontSize: 25,

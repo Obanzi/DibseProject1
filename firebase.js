@@ -4,6 +4,7 @@ import {
   initializeAuth,
   getReactNativePersistence,
 } from 'firebase/auth/react-native';
+import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

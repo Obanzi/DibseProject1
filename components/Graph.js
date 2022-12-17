@@ -135,12 +135,12 @@ const styles = StyleSheet.create({
     color: '#009688',
   },
   title: {
-    fontSize: 20,
+    fontSize: 27,
     color: '#009688',
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '10%',
+    top: '8%',
     left: '0%',
   },
   titleEinspeisung: {

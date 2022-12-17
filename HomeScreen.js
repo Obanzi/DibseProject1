@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
     left: '39%',
   },
   energySaving: {
-    top: '2%',
+    top: '0%',
     width: '100%',
-    height: '15%',
+    height: '20%',
   },
   img: {
     width: Dimensions.get('window').width,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     top: '103%',
   },
   NaviBar: {
-    top: '-1.3%',
+    top: '-6.3%',
   },
 });
 
