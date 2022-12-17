@@ -1,5 +1,5 @@
-import React, {Text, FlatList, View, StyleSheet, Image} from 'react-native';
-import {ActivityIndicator, Card} from 'react-native-paper';
+import React, {Text, FlatList, View, StyleSheet} from 'react-native';
+import {ActivityIndicator} from 'react-native-paper';
 import {useEffect, useState} from 'react';
 
 function EnergySavingTimes() {
@@ -56,7 +56,11 @@ function EnergySavingTimes() {
   return (
     <View style={styles.container}>
       {isLoading ? (
-        <ActivityIndicator />
+        <Text style={styles.alternativeText}>
+          Der Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
+          erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
+          sparen!
+        </Text>
       ) : (
         <FlatList
           data={times}
@@ -75,6 +79,12 @@ function EnergySavingTimes() {
 }
 
 const styles = StyleSheet.create({
+  alternativeText: {
+    fontSize: 25,
+    color: '#009688',
+    textAlign: 'center',
+    margin: 10,
+  },
   text: {
     fontSize: 25,
     color: '#009688',
