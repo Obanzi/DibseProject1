@@ -144,7 +144,8 @@ const styles = StyleSheet.create({
     top: '103%',
   },
   NaviBar: {
-    top: '-6.3%',
+    position: 'absolute',
+    bottom: 0,
   },
 });
 
