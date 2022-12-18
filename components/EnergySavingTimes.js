@@ -59,6 +59,13 @@ function EnergySavingTimes() {
     : 'Der österreichische Stromverbrauch kann zu einem hohen Anteil aus\n' +
       '          erneuerbaren Quellen gedeckt werden. Dennoch bitte wo möglich Energie sparen!';
 
+  if (times.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.textalternative}>Keine Spitzenzeiten gefunden.</Text>
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.textalternative}>{alternative}</Text>
