@@ -40,6 +40,12 @@ function SettingsComponent({navigation}) {
         <Text style={styles.text}>Settings</Text>
         <View style={styles.LogOutButton}>
           <ButtonComponent
+            title="Aktuellen Strompreis erfassen"
+            onPress={notificationsOff}
+          />
+        </View>
+        <View style={styles.LogOutButton}>
+          <ButtonComponent
             title="Turn notifications off"
             onPress={notificationsOff}
           />
