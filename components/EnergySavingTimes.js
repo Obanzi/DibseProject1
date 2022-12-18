@@ -62,7 +62,12 @@ function EnergySavingTimes() {
   if (times.length === 0) {
     return (
       <View style={styles.container}>
-        <Text style={styles.textalternative}>Keine Spitzenzeiten gefunden.</Text>
+        <Text style={styles.textalternative}>
+          {' '}
+          Der Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
+          erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
+          sparen!
+        </Text>
       </View>
     );
   }
