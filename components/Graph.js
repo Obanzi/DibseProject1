@@ -162,7 +162,9 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   NaviBar: {
-    top: '-3%',
+    position: 'absolute',
+    bottom: 0,
+    width: Dimensions.get('window').width,
   },
   input: {
     height: 40,

@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
   NaviBar: {
     position: 'absolute',
     bottom: 0,
+    width: Dimensions.get('window').width,
   },
 });
 
