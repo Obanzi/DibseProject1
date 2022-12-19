@@ -37,25 +37,26 @@ function SettingsComponent({navigation}) {
       <ImageBackground
         source={require('./images/BackgroundCropped.png')}
         style={styles.img}>
-        <Text style={styles.text}>Settings</Text>
+        <Text style={styles.text}>EINSTELLUNGEN</Text>
         <View style={styles.LogOutButton}>
           <ButtonComponent
             title="Aktuellen Strompreis erfassen"
             onPress={notificationsOff}
+            style={styles.button}
           />
         </View>
         <View style={styles.LogOutButton}>
           <ButtonComponent
-            title="Turn notifications off"
+            title="Benachrichtigungen aussch"
             onPress={notificationsOff}
           />
         </View>
         <View style={styles.LogOutButton}>
-          <ButtonComponent title="Logout" onPress={functioncombined} />
+          <ButtonComponent title="Ausloggen" onPress={functioncombined} />
         </View>
         <View style={styles.LogOutButton}>
           <ButtonComponent
-            title="Give us Feedback :)"
+            title="Feedback :)"
             onPress={() =>
               sendEmail(
                 'vigorisdibse@gmail.com',
@@ -77,7 +78,7 @@ function SettingsComponent({navigation}) {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: 'bold',
     color: '#009688',
     textAlign: 'center',
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#009688',
     textAlign: 'center',
-    top: '46%',
+    top: '35%',
   },
   LogOutButton: {
     top: '30%',
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height * 0.1,
     justifyContent: 'center',
     alignItems: 'center',
+    fontSize: 20,
   },
   img: {
     width: Dimensions.get('window').width,
@@ -109,7 +111,10 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   NaviBar: {
-    top: '46%',
+    top: '36%',
+  },
+  button: {
+    fontSize: 20,
   },
 });
 

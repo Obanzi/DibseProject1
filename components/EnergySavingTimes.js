@@ -64,7 +64,7 @@ function EnergySavingTimes() {
       <View style={styles.container}>
         <Text style={styles.textalternative}>
           {' '}
-          Der Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
+          Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
           erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
           sparen!
         </Text>
@@ -76,7 +76,7 @@ function EnergySavingTimes() {
       <Text style={styles.textalternative}>{alternative}</Text>
       {isLoading ? (
         <Text style={styles.textalternative}>
-          Der Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
+          Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
           erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
           sparen!
         </Text>

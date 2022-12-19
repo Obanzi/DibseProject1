@@ -3,13 +3,13 @@ import React, {useEffect, useState} from 'react';
 import {
   Alert,
   ImageBackground,
-  KeyboardAvoidingView,
+  KeyboardAvoidingView, Platform,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 import {authentication} from './firebase';
 import {
   createUserWithEmailAndPassword,
@@ -65,7 +65,9 @@ const LoginScreen = () => {
       source={require('./components/images/BackgroundCropped.png')}
       style={styles.img}>
       <Text style={styles.VigorisStyle}>Vigoris</Text>
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Email"
@@ -123,9 +125,8 @@ const styles = StyleSheet.create({
   },
   VigorisStyle: {
     fontStyle: 'italic',
-    textDecorationLine: 'underline',
     fontSize: 60,
-    color: '#000',
+    color: '#51565C',
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
@@ -156,10 +157,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonTextforgot: {
-    color: '#000',
-    fontWeight: '700',
+    color: '#51565C',
+    fontWeight: '70',
     fontSize: 14,
-    marginTop: 10,
+    marginTop: 18,
   },
   buttonOutlineText: {
     color: '#009688',
