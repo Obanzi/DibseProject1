@@ -1,5 +1,4 @@
 import React, {Text, FlatList, View, StyleSheet} from 'react-native';
-import {ActivityIndicator} from 'react-native-paper';
 import {useEffect, useState} from 'react';
 
 function EnergySavingTimes() {
@@ -34,10 +33,12 @@ function EnergySavingTimes() {
     let startDate = items[0];
     let endDate = null;
     for (var i = 1; i < items.length; i++) {
+      let previous = items[i - 1];
+      let next = items[i + 1];
       if (
-        items[i - 1].getHours().valueOf() ===
-          items[i].getHours().valueOf() - 1 &&
-        items[i + 1].getHours().valueOf() === items[i].getHours().valueOf() + 1
+        next &&
+        previous.getHours().valueOf() === items[i].getHours().valueOf() - 1 &&
+        next.getHours().valueOf() === items[i].getHours().valueOf() + 1
       ) {
         continue;
       }
@@ -54,16 +55,10 @@ function EnergySavingTimes() {
     times.push({startDate: startDate, endDate: endDate});
   }
 
-  let alternative = isLoading
-    ? 'Loading...'
-    : 'Der österreichische Stromverbrauch kann zu einem hohen Anteil aus\n' +
-      '          erneuerbaren Quellen gedeckt werden. Dennoch bitte wo möglich Energie sparen!';
-
   if (times.length === 0) {
     return (
       <View style={styles.container}>
         <Text style={styles.textalternative}>
-          {' '}
           Der österreichische Stromverbrauch kann zu einem hohen Anteil aus
           erneuerbaren Quellen gedeckt werden. Bitte dennoch wo möglich Energie
           sparen!
@@ -73,7 +68,6 @@ function EnergySavingTimes() {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.textalternative}>{alternative}</Text>
       {isLoading ? (
         <Text style={styles.textalternative}>
           Der österreichische Stromverbrauch kann zu einem hohen Anteil aus

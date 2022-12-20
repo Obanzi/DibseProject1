@@ -1,6 +1,11 @@
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 function NavigationBar({navigation}) {
+  const handlePress = () => {
+    navigation.navigate('Settings');
+    global.UserID = global.User;
+  };
+
   return (
     <View style={styles.Navigation}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
@@ -22,7 +27,7 @@ function NavigationBar({navigation}) {
           source={require('./images/ChartbarButton.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+      <TouchableOpacity onPress={handlePress}>
         <Image
           style={styles.SettingsButton}
           source={require('./images/EinstellungsButton.png')}

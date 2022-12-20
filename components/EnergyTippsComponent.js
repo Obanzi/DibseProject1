@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   Text,
   ImageBackground,
-  Dimensions,
-} from 'react-native';
+  Dimensions, Platform,
+} from "react-native";
 import EnergiesparTipp_1_component from './EnergieSparComponent/EnergiesparTipp_1_component';
 import EnergiesparTipp_2_component from './EnergieSparComponent/EnergiesparTipp_2_component';
 import EnergiesparTipp_3_component from './EnergieSparComponent/EnergiesparTipp_3_component';
@@ -20,6 +20,12 @@ import {sendEmail} from './EnergieSparComponent/ContactUs';
 import NavigationBar from './NavigationBar';
 
 function EnergyTipps({navigation}) {
+
+  const getStyle = () => ({
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? 0 : '-6%',
+    width: Dimensions.get('window').width,
+  });
   return (
     <View>
       <ImageBackground
@@ -65,7 +71,9 @@ function EnergyTipps({navigation}) {
             />
           </View>
         </ScrollView>
-        <NavigationBar navigation={navigation} />
+        <View style={getStyle()}>
+          <NavigationBar navigation={navigation} />
+        </View>
       </ImageBackground>
     </View>
   );

@@ -7,9 +7,10 @@ import {
   View,
   ImageBackground,
   Dimensions,
-  TextInput,
-} from 'react-native';
+  TextInput, Platform,
+} from "react-native";
 import NavigationBar from './NavigationBar';
+import {authentication} from '../firebase';
 
 function Graph({navigation}) {
   const [var1, setVar1] = useState(0);
@@ -17,7 +18,12 @@ function Graph({navigation}) {
   const [var3, setVar3] = useState(0);
   const [var4, setVar4] = useState(0);
 
-  const Strompreis = 0.29;
+  let Strompreis;
+  if (authentication.currentUser.uid === '7wIwGnxXuNUkSXCfFGEcqsYXZK62') {
+    Strompreis = global.price;
+  } else {
+    Strompreis = 0.25;
+  }
 
   const Calculate = ({var12, Strompreis12}) => {
     let result = var12 * Strompreis12;
@@ -28,6 +34,12 @@ function Graph({navigation}) {
       return result;
     }
   };
+
+  const getStyle = () => ({
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? 0 : '-6%',
+    width: Dimensions.get('window').width,
+  });
 
   return (
     <View>
@@ -92,7 +104,6 @@ function Graph({navigation}) {
           keyboardType="numeric"
           onChangeText={text => setVar1(text)}
           returnKeyType="done"
-          onKeyPress={keyPress => console.log(keyPress)}
         />
         <Text style={styles.titleEinspeisung}>Aktuellen Kosten!</Text>
         <Text style={styles.titleKosten}>
@@ -100,7 +111,7 @@ function Graph({navigation}) {
         </Text>
         <View style={styles.Kosten}>
           <Text style={styles.textCalc}>
-            {Calculate({var12: var1, Strompreis12: Strompreis})}€
+            {Calculate({var12: var1, Strompreis12: global.price})}€
           </Text>
         </View>
         <View style={styles.aktuellerStrompreis}>
@@ -108,7 +119,7 @@ function Graph({navigation}) {
             Ihr aktueller Strompreis beträgt {Strompreis} €/kwh
           </Text>
         </View>
-        <View style={styles.NaviBar}>
+        <View style={getStyle()}>
           <NavigationBar navigation={navigation} />
         </View>
       </ImageBackground>
@@ -123,15 +134,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   Kosten: {
-    top: '18%',
-    left: '20%',
+    top: '20%',
     width: 300,
     height: 300,
+    left: '25%',
   },
   titleKosten: {
     top: '15%',
-    left: 20,
     fontSize: 20,
+    textAlign: 'center',
     color: '#009688',
   },
   title: {
@@ -182,11 +193,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '15%',
+    bottom: '0%',
     left: '0%',
   },
   aktuellerStrompreis: {
-    top: '-4%',
+    top: '0%',
   },
 });
 

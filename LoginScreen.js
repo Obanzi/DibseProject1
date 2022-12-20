@@ -9,7 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
+} from 'react-native';
 import {authentication} from './firebase';
 import {
   createUserWithEmailAndPassword,
@@ -21,6 +21,9 @@ import {
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userID, setUserID] = useState('');
+
+  global.user = '';
 
   const navigation = useNavigation();
 
@@ -36,6 +39,7 @@ const LoginScreen = () => {
     createUserWithEmailAndPassword(authentication, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
+        console.log('Registered with ', user.email);
       })
       .catch(() => Alert.alert('Not a valid email or password'));
   };
@@ -43,6 +47,11 @@ const LoginScreen = () => {
     signInWithEmailAndPassword(authentication, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
+        setUserID(user.uid);
+        console.log('Logged in with ', user.email);
+        console.log('User Id: ', global.user);
+        global.user = user.uid;
+        console.log('User Id: ', global.user);
       })
       .catch(() => Alert.alert('User not found'));
   };
@@ -65,9 +74,7 @@ const LoginScreen = () => {
       source={require('./components/images/BackgroundCropped.png')}
       style={styles.img}>
       <Text style={styles.VigorisStyle}>Vigoris</Text>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Email"
@@ -98,7 +105,7 @@ const LoginScreen = () => {
         <TouchableOpacity onPress={resetPassword}>
           <Text style={styles.buttonTextforgot}>Forgot Password?</Text>
         </TouchableOpacity>
-      </KeyboardAvoidingView>
+      </View>
     </ImageBackground>
   );
 };

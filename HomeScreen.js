@@ -6,6 +6,7 @@ import {
   View,
   Image,
   Dimensions,
+  Platform,
 } from 'react-native';
 import NavigationBar from './components/NavigationBar';
 import EnergySavingTimes from './components/EnergySavingTimes';
@@ -14,6 +15,14 @@ function HomeScreen({navigation}) {
   let DateMonth = new Date().getMonth() + 1;
   let DateDay = new Date().getDate();
   let DateYear = new Date().getFullYear();
+
+  const getStyle = () => ({
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? 0 : '-6%',
+    width: Dimensions.get('window').width,
+    justifyItems: 'center',
+  });
+
   return (
     <View>
       <ImageBackground
@@ -45,7 +54,7 @@ function HomeScreen({navigation}) {
         <View style={styles.energySaving}>
           <EnergySavingTimes />
         </View>
-        <View style={styles.NaviBar}>
+        <View style={getStyle()}>
           <NavigationBar navigation={navigation} />
         </View>
       </ImageBackground>
@@ -62,8 +71,8 @@ const styles = StyleSheet.create({
   Clock: {
     width: 80,
     height: 80,
-    top: '9%',
-    left: '39%',
+    top: '8.5%',
+    left: '40%',
   },
   energySaving: {
     top: '9%',
@@ -133,7 +142,7 @@ const styles = StyleSheet.create({
   },
   NaviBar: {
     position: 'absolute',
-    bottom: 0,
+    bottom: '-6%',
     width: Dimensions.get('window').width,
   },
 });
