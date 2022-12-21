@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState} from 'react';
 import {
-  Alert,
+  Alert, Dimensions, Image,
   ImageBackground,
   KeyboardAvoidingView, Platform,
   StyleSheet,
@@ -73,7 +73,12 @@ const LoginScreen = () => {
     <ImageBackground
       source={require('./components/images/BackgroundCropped.png')}
       style={styles.img}>
-      <Text style={styles.VigorisStyle}>Vigoris</Text>
+      <View style={styles.imgLogo}>
+        <Image
+          source={require('./components/images/Logos/LOGO5.png')}
+          style={styles.image}
+        />
+      </View>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -111,14 +116,23 @@ const LoginScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  imgLogo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: '20%',
+  },
+  image: {
+    width: '80%',
+    height: 80,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   img: {
-    height: '100%',
-    width: '100%',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
   inputContainer: {
     width: '80%',
@@ -129,15 +143,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: 5,
-  },
-  VigorisStyle: {
-    fontStyle: 'italic',
-    fontSize: 60,
-    color: '#51565C',
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-    top: '20%',
   },
   buttonContainer: {
     width: '60%',
