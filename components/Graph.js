@@ -2,15 +2,18 @@ import React, {useState} from 'react';
 import {LineChart} from 'react-native-chart-kit';
 
 import {
+  Dimensions,
+  ImageBackground,
+  Platform,
   StyleSheet,
   Text,
+  TextInput,
+  TouchableOpacity,
   View,
-  ImageBackground,
-  Dimensions,
-  TextInput, Platform,
-} from "react-native";
+} from 'react-native';
 import NavigationBar from './NavigationBar';
 import {authentication} from '../firebase';
+import * as SecureStore from 'expo-secure-store';
 
 function Graph({navigation}) {
   const [var1, setVar1] = useState(0);
@@ -20,17 +23,26 @@ function Graph({navigation}) {
 
   let Strompreis;
   if (authentication.currentUser.uid === '7wIwGnxXuNUkSXCfFGEcqsYXZK62') {
-    Strompreis = global.price;
+    if (global.price === undefined) {
+      Strompreis = 0.29;
+    } else {
+      Strompreis = global.price;
+    }
   } else {
     Strompreis = 0.25;
   }
 
   const Calculate = ({var12, Strompreis12}) => {
-    let result = var12 * Strompreis12;
-    if (isNaN(result)) {
-      return 0;
+    let result;
+    if (var12 === undefined || Strompreis12 === undefined) {
+      return 0 + '.00';
     } else {
-      result = result.toFixed(2);
+      result = var12 * Strompreis12;
+    }
+    if (isNaN(result)) {
+      return 0 + '.00';
+    } else {
+      result = parseFloat(result).toFixed(2);
       return result;
     }
   };
@@ -40,6 +52,21 @@ function Graph({navigation}) {
     bottom: Platform.OS === 'ios' ? 0 : '-6%',
     width: Dimensions.get('window').width,
   });
+
+  const saveValue = () => {
+    save(authentication.currentUser.uid, var1);
+    getValueForPrice(authentication.currentUser.uid).then(r => {
+      console.log(r);
+      alert('Values have been saved');
+    });
+  };
+
+  async function save(keys, value) {
+    await SecureStore.setItemAsync(keys, value);
+  }
+  async function getValueForPrice(keys) {
+    return await SecureStore.getItemAsync(keys);
+  }
 
   return (
     <View>
@@ -65,7 +92,7 @@ function Graph({navigation}) {
             ],
             datasets: [
               {
-                data: [var1, var2, var3, var4],
+                data: [var1, var1, var3, var4],
               },
             ],
           }}
@@ -77,7 +104,7 @@ function Graph({navigation}) {
             backgroundColor: '#009688',
             backgroundGradientFrom: '#009688',
             backgroundGradientTo: '#ffa726',
-            decimalPlaces: 0, // optional, defaults to 2dp
+            decimalPlaces: 1, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {
@@ -96,22 +123,31 @@ function Graph({navigation}) {
             top: 90,
           }}
         />
-        <Text style={styles.titleEinspeisung}>Zählerstand</Text>
+        <Text style={styles.titleZaehlerstand}>Zählerstand</Text>
         <TextInput
           style={styles.input}
-          placeholder="Energieverbrauch in kWh"
+          placeholder="Zählerstand"
           placeholderTextColor="#009688"
           keyboardType="numeric"
           onChangeText={text => setVar1(text)}
+          value={var1}
           returnKeyType="done"
+          clearButtonMode={'always'}
         />
-        <Text style={styles.titleEinspeisung}>Aktuellen Kosten!</Text>
+        <AppButton
+          title="Speichern"
+          style={styles.button}
+          onPress={() => {
+            saveValue();
+          }}
+        />
+        <Text style={styles.titleEinspeisung}>Aktuellen Kosten</Text>
         <Text style={styles.titleKosten}>
           Die aktuellen Kosten belaufen sich auf:
         </Text>
         <View style={styles.Kosten}>
           <Text style={styles.textCalc}>
-            {Calculate({var12: var1, Strompreis12: global.price})}€
+            {Calculate({var12: var1, Strompreis12: Strompreis})}€
           </Text>
         </View>
         <View style={styles.aktuellerStrompreis}>
@@ -127,11 +163,28 @@ function Graph({navigation}) {
   );
 }
 
+const AppButton = ({onPress, title}) => (
+  <TouchableOpacity onPress={onPress} style={styles.button}>
+    <Text style={styles.textStyleNormal2}>{title}</Text>
+  </TouchableOpacity>
+);
+
 const styles = StyleSheet.create({
+  inputView: {
+    left: 20,
+    top: 100,
+  },
   textCalc: {
     fontSize: 80,
     color: '#009688',
     fontWeight: 'bold',
+    bottom: 60,
+  },
+  textStyleNormal2: {
+    fontSize: 13,
+    color: 'white',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
   Kosten: {
     top: '20%',
@@ -140,7 +193,7 @@ const styles = StyleSheet.create({
     left: '25%',
   },
   titleKosten: {
-    top: '15%',
+    top: '8%',
     fontSize: 20,
     textAlign: 'center',
     color: '#009688',
@@ -160,8 +213,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    top: '13%',
+    top: '8%',
     left: '0%',
+  },
+  titleZaehlerstand: {
+    fontSize: 20,
+    color: '#009688',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase',
+    top: '11%',
   },
   img: {
     width: Dimensions.get('window').width,
@@ -181,11 +242,12 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 19,
     borderWidth: 2,
-    top: '12%',
+    top: '10%',
     left: '20%',
-    width: '50%',
+    width: '30%',
     borderRadius: 2,
     backgroundColor: '#fff',
+    textAlign: 'center',
   },
   text: {
     fontSize: 14,
@@ -193,11 +255,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    bottom: '0%',
-    left: '0%',
+    bottom: 30,
   },
   aktuellerStrompreis: {
     top: '0%',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#009688',
+    padding: 12.2,
+    width: '25%',
+    borderRadius: 2,
+    top: '3.6%',
+    left: '55.5%',
   },
 });
 

@@ -1,9 +1,10 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useState} from 'react';
 import {
-  Alert, Dimensions, Image,
+  Alert,
+  Dimensions,
+  Image,
   ImageBackground,
-  KeyboardAvoidingView, Platform,
   StyleSheet,
   Text,
   TextInput,

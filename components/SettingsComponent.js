@@ -19,11 +19,13 @@ import * as SecureStore from 'expo-secure-store';
 function SettingsComponent({navigation}) {
   const [key, onChangeKey] = React.useState(global.user);
   const [price, onChangePrice] = React.useState('');
-  const [result, onChangeResult] = React.useState('');
+  const [resultprice, onChangeResultprice] = React.useState('');
   const [zaehler, onChangeZaehler] = React.useState(0);
+  const [resultzaehler, onChangeResultzaehler] = React.useState(0);
 
   global.userID = global.user;
-  global.price = result;
+  global.price = resultprice;
+  global.zaehler = resultzaehler;
 
   async function save(keys, value) {
     await SecureStore.setItemAsync(keys, value);
@@ -31,7 +33,17 @@ function SettingsComponent({navigation}) {
   async function getValueForPrice(keys) {
     let result1 = await SecureStore.getItemAsync(keys);
     if (result1) {
-      onChangeResult(result1);
+      onChangeResultprice(result1);
+    } else {
+      onChangeKey(0);
+      alert('No value stored under that key.');
+    }
+  }
+
+  async function getValueForZaehler(keys) {
+    let result1 = await SecureStore.getItemAsync(keys);
+    if (result1) {
+      onChangeResultzaehler(result1);
     } else {
       onChangeKey(0);
       alert('No value stored under that key.');
@@ -147,7 +159,7 @@ function SettingsComponent({navigation}) {
 }
 
 const AppButton = ({onPress, title}) => (
-  <TouchableOpacity onPress={onPress} style={styles.button}>
+  <TouchableOpacity onPress={onPress}>
     <Text style={styles.textStyleNormal2}>{title}</Text>
   </TouchableOpacity>
 );
@@ -185,7 +197,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    bottom: 10,
   },
   inputPrice: {
     height: 40,
@@ -246,18 +257,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
-  },
-  button: {
-    top: '30%',
-    left: 0,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height * 0.1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: 20,
-    borderColor: 'black',
-    borderRadius: 102,
-    borderStyle: 'dotted',
   },
 });
 

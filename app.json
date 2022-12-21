@@ -1,3 +1,7 @@
 {
-  "expo": {}
+  "expo": {
+    "name": "DibseProject",
+    "slug": "DibseProject",
+    "orientation": "portrait"
+  }
 }
