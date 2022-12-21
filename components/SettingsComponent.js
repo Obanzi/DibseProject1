@@ -95,7 +95,7 @@ function SettingsComponent({navigation}) {
             returnKeyType="done"
           />
           <Text style={styles.textStyleNormal}>
-            Ersten abgelesenen Zählerstand erfassen
+            Ersten abgelesenen Zählerstand erfassen.
           </Text>
           <TextInput
             style={styles.inputCounter}
