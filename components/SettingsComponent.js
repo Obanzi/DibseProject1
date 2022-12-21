@@ -83,7 +83,7 @@ function SettingsComponent({navigation}) {
         <Text style={styles.text}>EINSTELLUNGEN</Text>
         <View style={styles.LogOutButton}>
           <Text style={styles.textStyleNormal}>
-            Hier Ihren aktuellen Strompreis erfassen
+            Hier Ihren aktuellen Strompreis erfassen.
           </Text>
           <TextInput
             style={styles.inputPrice}
@@ -95,7 +95,7 @@ function SettingsComponent({navigation}) {
             returnKeyType="done"
           />
           <Text style={styles.textStyleNormal}>
-            Ersten abgelesenen Zählerstand erfassen
+            Ersten abgelesenen Zählerstand erfassen.
           </Text>
           <TextInput
             style={styles.inputCounter}
