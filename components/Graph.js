@@ -81,7 +81,7 @@ function Graph({navigation}) {
       <ImageBackground
         source={require('./images/BackgroundCropped.png')}
         style={styles.img}>
-        <Text style={styles.title}>Eigenverbrauch.</Text>
+        <Text style={styles.title}>Eigenverbrauch</Text>
         <LineChart
           data={{
             labels: [
