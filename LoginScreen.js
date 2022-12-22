@@ -40,9 +40,20 @@ const LoginScreen = () => {
     createUserWithEmailAndPassword(authentication, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
-        console.log('Registered with ', user.email);
+        alert('Registered with ', user.email);
       })
-      .catch(() => Alert.alert('Not a valid email or password'));
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          alert('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          alert('That email address is invalid!');
+        }
+        if (error.code === 'auth/weak-password') {
+          alert('Password is too weak!');
+        }
+      });
   };
   const handleLogin = () => {
     signInWithEmailAndPassword(authentication, email, password)
@@ -52,7 +63,6 @@ const LoginScreen = () => {
         console.log('Logged in with ', user.email);
         console.log('User Id: ', global.user);
         global.user = user.uid;
-        console.log('User Id: ', global.user);
       })
       .catch(() => Alert.alert('User not found'));
   };
