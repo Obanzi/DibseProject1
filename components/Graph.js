@@ -76,12 +76,6 @@ function Graph({navigation}) {
     return await SecureStore.getItemAsync(keys);
   }
 
-  useEffect(() => {
-    getValueForPrice(authentication.currentUser.uid).then(r => {
-      setVar1(r);
-    });
-  }, [navigation]);
-
   return (
     <View>
       <ImageBackground

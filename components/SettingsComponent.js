@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ImageBackground,
   StyleSheet,
@@ -86,6 +86,11 @@ function SettingsComponent({navigation}) {
     bottom: Platform.OS === 'ios' ? 0 : '-6%',
     width: Dimensions.get('window').width,
   });
+
+  useEffect(() => {
+    getValueForPrice(authentication.currentUser.uid);
+    getValueForZaehler(authentication.currentUser.uid);
+  }, [navigation]);
 
   return (
     <View>
