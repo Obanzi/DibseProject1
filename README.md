@@ -1,4 +1,4 @@
-Stand 23.12.2022.
+Stand 23.12.2022
 
 Der aktuelle Stand der APP beinhaltet folgende Funktionen:
 
