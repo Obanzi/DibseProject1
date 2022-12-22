@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {LineChart} from 'react-native-chart-kit';
 
 import {
@@ -17,9 +17,17 @@ import * as SecureStore from 'expo-secure-store';
 
 function Graph({navigation}) {
   const [var1, setVar1] = useState(0);
-  const [var2, setVar2] = useState(0);
-  const [var3, setVar3] = useState(0);
-  const [var4, setVar4] = useState(0);
+  let var2 = Math.floor(Math.random() * 1000);
+  let var3 = Math.floor(Math.random() * 1000);
+  let var4 = Math.floor(Math.random() * 1000);
+  let var5 = Math.floor(Math.random() * 1000);
+  let var6 = Math.floor(Math.random() * 1000);
+  let var7 = Math.floor(Math.random() * 1000);
+  let var8 = Math.floor(Math.random() * 1000);
+  let var9 = Math.floor(Math.random() * 1000);
+  let var10 = Math.floor(Math.random() * 1000);
+  let var11 = Math.floor(Math.random() * 1000);
+  let var12 = Math.floor(Math.random() * 1000);
 
   let Strompreis;
   if (authentication.currentUser.uid === '7wIwGnxXuNUkSXCfFGEcqsYXZK62') {
@@ -32,12 +40,12 @@ function Graph({navigation}) {
     Strompreis = 0.25;
   }
 
-  const Calculate = ({var12, Strompreis12}) => {
+  const Calculate = ({varWert, Strompreis12}) => {
     let result;
-    if (var12 === undefined || Strompreis12 === undefined) {
+    if (varWert === undefined || Strompreis12 === undefined) {
       return 0 + '.00';
     } else {
-      result = var12 * Strompreis12;
+      result = varWert * Strompreis12;
     }
     if (isNaN(result)) {
       return 0 + '.00';
@@ -68,6 +76,12 @@ function Graph({navigation}) {
     return await SecureStore.getItemAsync(keys);
   }
 
+  useEffect(() => {
+    getValueForPrice(authentication.currentUser.uid).then(r => {
+      setVar1(r);
+    });
+  }, [navigation]);
+
   return (
     <View>
       <ImageBackground
@@ -92,7 +106,20 @@ function Graph({navigation}) {
             ],
             datasets: [
               {
-                data: [var1, var1, var3, var4],
+                data: [
+                  var1,
+                  var2,
+                  var3,
+                  var4,
+                  var5,
+                  var6,
+                  var7,
+                  var8,
+                  var9,
+                  var10,
+                  var11,
+                  var12,
+                ],
               },
             ],
           }}
@@ -104,7 +131,7 @@ function Graph({navigation}) {
             backgroundColor: '#009688',
             backgroundGradientFrom: '#009688',
             backgroundGradientTo: '#ffa726',
-            decimalPlaces: 1, // optional, defaults to 2dp
+            decimalPlaces: 0, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {
@@ -147,7 +174,7 @@ function Graph({navigation}) {
         </Text>
         <View style={styles.Kosten}>
           <Text style={styles.textCalc}>
-            {Calculate({var12: var1, Strompreis12: Strompreis})}€
+            {Calculate({varWert: var1, Strompreis12: Strompreis})}€
           </Text>
         </View>
         <View style={styles.aktuellerStrompreis}>
@@ -175,10 +202,11 @@ const styles = StyleSheet.create({
     top: 100,
   },
   textCalc: {
-    fontSize: 80,
+    fontSize: 60,
     color: '#009688',
     fontWeight: 'bold',
     bottom: 60,
+    alignSelf: 'center',
   },
   textStyleNormal2: {
     fontSize: 13,
@@ -190,7 +218,7 @@ const styles = StyleSheet.create({
     top: '20%',
     width: 300,
     height: 300,
-    left: '25%',
+    alignSelf: 'center',
   },
   titleKosten: {
     top: '8%',
@@ -255,7 +283,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform: 'uppercase',
-    bottom: 30,
+    bottom: 45,
   },
   aktuellerStrompreis: {
     top: '0%',
